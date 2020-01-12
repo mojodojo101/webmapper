@@ -1,6 +1,13 @@
 # webmapper
 
 need to do sth about the output of gobuster when i cancel the script
+if u cancel the gobuster script u will need to:
+
+cat gobusterGarbageFile.txt >> <g.sh out file>
+
+this will merge the last run of g.sh with ur url file
+
+
 maybe sth like call another script that waits for gobuster pid to finish
 while kill -0 PIDOFGOBUSTER 2> /dev/null; do sleep 1; done;
 
