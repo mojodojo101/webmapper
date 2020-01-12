@@ -11,6 +11,7 @@ g.sh <-u URL> <-o file> [-t 40] [-w Wordlist] [-p 127.0.0.1:8080]
 makeSVGgraph.sh<urlfile> <target> [-i == ignoreCase]
 
 run them together like this
+
 g.sh -u http://10.11.1.73:8080/php/skins -o urls.txt
 
 makeSVGgraph.sh urls.txt mygraph -i
