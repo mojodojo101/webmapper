@@ -6,13 +6,14 @@ echo "$*"
 exit 2
 }
 
-while getopts "u:o:t:p:w:?h" opt; do
+while getopts "u:o:t:p:w:i:?h" opt; do
   case $opt in
     u) url="-u $OPTARG"   ;;
     w) wordlist="-w $OPTARG" ;;
     t) threads="-t $OPTARG" ;;
     o) out=$OPTARG   ;;
     p) proxy="-p $OPTARG"   ;; 
+    i) ignore=" --wildcard -s $OPTARG"	;;
     h|?|*) usage ;;
   esac
 done
@@ -36,5 +37,6 @@ if [ -z "$wordlist" ];then
 	wordlist="-w /usr/share/wordlists/seclist/web/raft-large-directories.txt"
 fi
 cat  gobusterGarbageFile.txt >> $out;
-gobuster dir $url $wordlist -o gobusterGarbageFile.txt $threads $proxy -e;
+gobuster dir $url $wordlist -o gobusterGarbageFile.txt --timeout 60s $threads $proxy -e -k $ignore -a "Mozilla";
 cat  gobusterGarbageFile.txt >> $out;
+rm gobusterGarbageFile.txt;
