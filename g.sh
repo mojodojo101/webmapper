@@ -34,7 +34,7 @@ if [ -z "$threads" ]; then
 fi	
 
 if [ -z "$wordlist" ];then
-	wordlist="-w /usr/share/wordlists/seclist/web/raft-large-directories.txt"
+	wordlist="-w /usr/share/seclists/Discovery/Web-Content/raft-large-directories.txt"
 fi
 cat  gobusterGarbageFile.txt >> $out;
 gobuster dir $url $wordlist -o gobusterGarbageFile.txt --timeout 60s $threads $proxy -e -k $ignore -a "Mozilla";
