@@ -1,6 +1,6 @@
 #!/bin/bash
-if[ $# -ne 2 ];then
-	echo "$0 <url> <out.txt>";
+if [ $# -ne 2 ];then
+	echo "$0 <endpoints> <out.txt>";
 	exit -1;
 fi
 endpoints=`cat $1`;
